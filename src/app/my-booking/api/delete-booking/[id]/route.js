@@ -11,7 +11,7 @@ export const DELETE = async (request, { params }) => {
     // const deleted = await res.json();
     return NextResponse.json(res);
   } catch (error) {
-    return NextResponse.json(error);
+    return NextResponse.json({ message: "data not found" });
   }
 };
 
@@ -24,7 +24,7 @@ export const GET = async (request, { params }) => {
     const res = await bookingsCollection.findOne({ _id: new ObjectId(id) });
     return NextResponse.json(res);
   } catch (error) {
-    return NextResponse.json(error);
+    return NextResponse.json({ message: "data not found" });
   }
 };
 
@@ -51,6 +51,6 @@ export const PATCH = async (request, { params }) => {
     );
     return NextResponse.json(res);
   } catch (error) {
-    return NextResponse.json(error);
+    return NextResponse.json({ message: "data not found" });
   }
 };

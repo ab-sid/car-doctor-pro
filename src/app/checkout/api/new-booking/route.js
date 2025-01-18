@@ -12,6 +12,6 @@ export const POST = async (request) => {
       { status: 200 }
     );
   } catch (error) {
-    return NextResponse.json(error);
+    return NextResponse.json({ message: "data not found" });
   }
 };

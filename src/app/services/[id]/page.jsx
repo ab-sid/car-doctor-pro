@@ -1,12 +1,12 @@
 import { getServiceDetails } from "@/services/getServices";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const page = async ({ params }) => {
   const { id } = await params;
   const details = await getServiceDetails(id);
-  const { _id, title, img, price, facility, description } = details.res;
+  console.log(details);
+  const { _id, title, img, price, facility, description } = details;
   return (
     <div>
       <div
@@ -24,7 +24,7 @@ const page = async ({ params }) => {
         <div className="col-span-12 md:col-span-8">
           <div className="flex flex-col space-y-10">
             {/* <Image src={img} width={400} height={350} alt="title"></Image> */}
-            <img className="w-full" src={img} alt="" srcset="" />
+            <img className="w-full" src={img} alt="" />
             <h3 className="text-black font-bold text-3xl">{title}</h3>
             <p>{description}</p>
           </div>

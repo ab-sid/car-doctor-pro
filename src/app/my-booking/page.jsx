@@ -6,6 +6,7 @@ import img from "../../../public/assets/images/services/3.jpg";
 
 const page = () => {
   const [bookings, setBookings] = useState([]);
+  // console.log(bookings);
   const session = useSession();
 
   const loadBookings = async () => {

@@ -9,6 +9,6 @@ export const GET = async (request, { params }) => {
     const res = await bookingsCollection.find({ email: email }).toArray();
     return NextResponse.json(res);
   } catch (error) {
-    return NextResponse.json(error);
+    return NextResponse.json({ message: "data not found" });
   }
 };

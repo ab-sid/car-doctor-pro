@@ -13,7 +13,7 @@ const page = ({ params }) => {
   const loadService = async () => {
     const { id } = await params;
     const details = await getServiceDetails(id);
-    setService(details.res);
+    setService(details);
   };
 
   useEffect(() => {

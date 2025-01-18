@@ -4,8 +4,8 @@ import { getServices } from "@/services/getServices";
 
 const Services = async () => {
   const data = await getServices();
-  const { res } = data;
-  // console.log(data.res);
+  // const { res } = data;
+  // console.log(data);
   return (
     <div className="mb-10 md:mb-32">
       <div className="flex flex-col space-y-2 text-center">
@@ -17,8 +17,8 @@ const Services = async () => {
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-20">
-        {res.length > 0 &&
-          res.map((service) => (
+        {data.length > 0 &&
+          data.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
       </div>
