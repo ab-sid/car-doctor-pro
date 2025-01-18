@@ -11,7 +11,7 @@ const page = ({ params }) => {
   const loadData = async () => {
     const { id } = await params;
     const res = await fetch(
-      `http://localhost:3000/my-booking/api/delete-booking/${id}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/my-booking/api/delete-booking/${id}`
     );
     const data = await res.json();
     setSingleService(data);
@@ -35,7 +35,7 @@ const page = ({ params }) => {
       date,
     };
     const res = await fetch(
-      `http://localhost:3000/my-booking/api/delete-booking/${id}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/my-booking/api/delete-booking/${id}`,
       {
         method: "PATCH",
         body: JSON.stringify(updateDoc),

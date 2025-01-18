@@ -1,4 +1,5 @@
 import { connectDB } from "@/lib/connectDB";
+import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
   const { email } = await params;
@@ -6,8 +7,8 @@ export const GET = async (request, { params }) => {
   const bookingsCollection = db.collection("bookings");
   try {
     const res = await bookingsCollection.find({ email: email }).toArray();
-    return Response.json(res);
+    return NextResponse.json(res);
   } catch (error) {
-    console.log(error);
+    return NextResponse.json(error);
   }
 };

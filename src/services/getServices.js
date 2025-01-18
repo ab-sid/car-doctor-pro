@@ -1,11 +1,23 @@
 export const getServices = async () => {
-  const res = await fetch("http://localhost:3000/services/api/get-all");
-  const services = res.json();
-  return services;
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/get-all`
+    );
+    const services = res.json();
+    return services;
+  } catch (error) {
+    return [];
+  }
 };
 
 export const getServiceDetails = async (id) => {
-  const res = await fetch(`http://localhost:3000/services/api/${id}`);
-  const service = res.json();
-  return service;
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/${id}`
+    );
+    const service = res.json();
+    return service;
+  } catch (error) {
+    return {};
+  }
 };

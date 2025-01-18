@@ -1,5 +1,6 @@
 import { connectDB } from "@/lib/connectDB";
 import services from "../../../../../public/services.json";
+import { NextResponse } from "next/server";
 // console.log(services);
 export const GET = async () => {
   const db = await connectDB();
@@ -7,8 +8,10 @@ export const GET = async () => {
   try {
     await servicesCollection.deleteMany();
     const resp = await servicesCollection.insertMany(services);
-    return Response.json({ message: "Services data inserted successfully" });
+    return NextResponse.json({
+      message: "Services data inserted successfully",
+    });
   } catch (error) {
-    console.log(error);
+    return NextResponse.json(error);
   }
 };

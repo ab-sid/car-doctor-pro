@@ -13,7 +13,7 @@ const page = () => {
     const password = form.password.value;
     const user = { name, email, password };
     console.log(user);
-    const resp = await fetch("http://localhost:3000/signup/api", {
+    const resp = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/signup/api`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
